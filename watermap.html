@@ -120,7 +120,61 @@
             font-family: Fira Sans, sans-serif;
             font-size:0.75em;
             color:white;
-            text-shadow: .5px .8px 2px black; 
+            text-shadow: .5px .8px 2px black;             
+        }
+
+        .line-break{
+            display: block;
+        }
+
+        @media screen and (max-width: 700px) {
+            .map-overlay {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .map-overlay-text {
+                padding: 10px;
+                font-family: 'Fira Sans';font-size: 10px;
+                overflow: auto;        
+                padding-top: 30px;
+            }
+
+            .titlebox {
+                position: absolute;
+                top: 0px;
+                left: 0px;  
+                right: 0px;  
+                box-shadow: 1px 1px 2px black;      
+            }
+
+            .title {
+                font-family: 'Fira Sans';font-size: 20px;
+                color:#FFFFFF;
+                padding:5px;
+                padding-left: 10px;
+               
+            }        
+
+            #legend {
+                position:absolute;
+                right: 0px;
+                bottom:0px;
+                padding: 10px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+                line-height: 12px;
+                height: 50px;
+                margin-bottom: 0px;
+                width: 150px;
+                font-family: Fira Sans, sans-serif;
+                font-size:.8em;
+            }   
+
+            .line-break {
+                display: none;
+            }         
+
         }
 
     </style>
@@ -355,7 +409,7 @@ function show_text(target_name){
         sources.forEach(function(s) {
             source_names.push(get_properties(s).properties.cname);
         })
-        document.getElementById('pd').innerHTML = "<br><h3><strong>" + target_name + "</strong><br> </h3><p>has bought water from the following agencies:</p>";  
+        document.getElementById('pd').innerHTML = "<h3><strong>" + target_name + "</strong><br> </h3><p>has bought water from the following agencies:</p>";  
         document.getElementById('pd').appendChild(makeUL(source_names));     
     }
 }
@@ -404,7 +458,9 @@ map.on('load', function () {
 <div class='map-overlay-text' id='features'>
     <h2>Where does your water come from?</h2>
     <h3>This webmap maps data collected by the Berkeley Water Center.<br><br> The map takes in transaction data between water agencies and visualizes who has bought water from who. </h3>
-    <br><br>
+    
+    <br class='line-break'/><br class='line-break'/>
+    
     <div class='blue-text' id='pd'><p>Click on a point to see more information!</p></div></div>
 
 </div>
